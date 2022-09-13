@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Page</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+<!--   load our script   -->
+    <script src="assets/js/script.js" defer></script>
+  
+  </head>
+  <body>
+    
+    <div id="hello">
+      <p>
+        Hello world!
+      </p>
+    </div>
+    
+    <div id="cold" class="day">
+      <p>
+        It's a cold day
+      </p>
+    </div>
+    
+    <div id="surprise" class="day hide">
+      <p>
+        Not a nice surprise
+      </p>
+    </div>
+    
+<!--   form elements allow us to ingest data and offer options to the user  -->
+    <form name="myForm" id="myForm" onsubmit="return validateForm()">
+      <div>
+        <input type="text" name="myField" id="knowledge" value="fill me with knowledge...">
+      </div>
+      <div>
+        <input type="checkbox" name="checkit" id="checkit" value="checktest">
+        <label for="checkit">check me out</label> 
+      </div>
+      <input type="submit" value="push me">
+    </form>
+    
+    <div id="message-area">
+    </div>
+    
+    <div id="scrollfader">
+        <img src="assets/img/terrazzo.webp" alt=""/>
+    </div>
+
+  </body>
+</html>
