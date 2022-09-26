@@ -1,4 +1,16 @@
 @import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html{
+  /* CSS variable definitions */
+  --type-main: #222222;
+  --key: #fefefe;
+
+  --padding-xs: 0.5rem;
+  --padding-s: 1rem;
+  --padding-m: 2rem;
+  --padding-l: 4rem;
+}
 
 * {
   box-sizing: border-box;
@@ -6,11 +18,47 @@
 
 body {
   font-size: 20px;
-  padding: 20px;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  /* CSS variables in use */
+  color: var(--type-main);
+  background: var(--key);
+}
+
+b,
+strong{
+  font-weight: 700;
+}
+
+i,
+em{
+  font-style: italic;
 }
 
 img {
   max-width: 100%;
+}
+
+header,
+main{
+  padding: var(--padding-m);
+}
+header{
+  color: var(--key);
+  background: var(--type-main);
+  position: relative;
+}
+header .scroll-meter{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background: red;
+}
+
+section{
+  margin: 2rem 0;
 }
 
 form {
@@ -25,6 +73,19 @@ form {
   form input[type="text"] {
     width: 100%;
   }
+
+.red-square{
+  min-width: 50px;
+  min-height: 50px;
+  padding: 1rem;
+  background: red;
+}
+
+.draggable{
+  user-select: none;
+  position: absolute;
+  z-index: 1000;
+}
 
 .redback {
   background-color: red;
@@ -42,11 +103,48 @@ form {
 
 #scrollfader {
   opacity: 0;
+  position: relative;
 }
+
 
 /* ID selector */
 #hello{}
+
 /* Class selector */
 .day {
   /* background: blue; */
 }
+
+/* audio-player.js ========= */
+
+#audio-player{
+  display: inline-block;
+  padding: 1rem;
+}
+#audio-player .controls{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+#audio-player .controls > * {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 5rem;
+  height: 5rem;
+}
+  #audio-player .controls > *:hover {
+    cursor: pointer;
+  }
+/* controller graphics from iconmonstr - https://iconmonstr.com/?s=audio */
+#audio-player .button_play{
+  background: url(../img/media/play.svg);
+}
+#audio-player .button_pause{
+  background: url(../img/media/pause.svg);
+}
+#audio-player .button_mute{
+  background: url(../img/media/mute.svg);
+}
+
+/* ====================== */

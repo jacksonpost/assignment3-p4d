@@ -4,48 +4,78 @@
     <title>Test Page</title>
     <link rel="stylesheet" href="assets/css/style.css">
     
-<!--   load our script   -->
+    <!-- load our script/s.  Defer prevents them from running until the HTML is parsed -->
     <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/scrollfader.js" defer></script>
+    <script src="assets/js/draggable.js" defer></script>
+    <script src="assets/js/audio-player.js" defer></script>
   
   </head>
   <body>
     
-    <div id="hello">
-      <p>
-        Hello world!
-      </p>
-    </div>
-    
-    <div id="cold" class="day">
-      <p>
-        It's a cold day
-      </p>
-    </div>
-    
-    <div id="surprise" class="day hide">
-      <p>
-        Not a nice surprise
-      </p>
-    </div>
-    
-<!--   form elements allow us to ingest data and offer options to the user  -->
-    <form name="myForm" id="myForm" onsubmit="return validateForm()">
-      <div>
-        <input type="text" name="myField" id="knowledge" value="fill me with knowledge...">
-      </div>
-      <div>
-        <input type="checkbox" name="checkit" id="checkit" value="checktest">
-        <label for="checkit">check me out</label> 
-      </div>
-      <input type="submit" value="push me">
-    </form>
-    
-    <div id="message-area">
-    </div>
-    
-    <div id="scrollfader">
-        <img src="assets/img/terrazzo.webp" alt=""/>
-    </div>
+    <header>
+      <h1>P4D Example Code</h1>
+      <!-- <div class="scroll-meter"></div> -->
+    </header>
 
+    <main>
+      <!-- a draggable element (using drag events) needs the attribute: draggable="true" -->
+      <!-- <div class="draggable red-square" draggable="true"></div> -->
+      <!-- if using mousedown instead, we remove the draggable attribute: -->
+      <div class="draggable red-square">Drag me too!</div>
+      <div class="draggable red-square">Drag me!</div>
+
+
+      <div id="audio-player">
+        <div class="controls" aria-label="audio controls">
+          <div class="button_play" data-playing="false" role="button" aria-label="play or pause"></div>
+          <!-- <div class="button_mute" role="button" aria-label="mute or unmute"></div> -->
+        </div>
+        <!-- crossorigin attribute mitigates CORS errors: https://www.dofactory.com/html/audio/crossorigin -->
+        <audio crossorigin="anonymous" src="https://dl.dropboxusercontent.com/s/j0hgx7aj91j9i92/libdance.mp3">
+        </audio>
+      </div>
+
+      <section>
+        <div id="hello">
+          <p>
+            Hello world!
+          </p>
+        </div>
+        
+        <div id="cold" class="day">
+          <p>
+            It's a cold day
+          </p>
+        </div>
+        
+        <div id="surprise" class="day hide">
+          <p>
+            Not a nice surprise
+          </p>
+        </div>
+    </section>
+
+      <!-- form elements allow us to ingest data and offer options to the user -->
+      <form name="myForm" id="myForm" onsubmit="return validateForm()">
+        <div>
+          <input type="text" name="myField" id="knowledge" value="fill me with knowledge...">
+        </div>
+        <div>
+          <input type="checkbox" name="checkit" id="checkit" value="checktest">
+          <label for="checkit">check me out</label> 
+        </div>
+        <input type="submit" value="push me">
+      </form>
+      
+      <!-- an element to display messages using JS -->
+      <div id="message-area">
+      </div>
+      
+      <!-- fades into view as the page scrolls down -->
+      <div id="scrollfader">
+        <img src="assets/img/terrazzo.webp" alt=""/>
+      </div>
+  </main>
   </body>
 </html>
