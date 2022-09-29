@@ -4,10 +4,10 @@ let inc = 0;
 
 // remember, you can use objects to store and retrieve data:
 let obj = {
-    property: value,
-    property2: value2
+    property: "value",
+    property2: "value2"
 }
-// console.log(obj.property);
+console.log(obj.property);
 
 // create an array of elements that match a query
 let elements = document.querySelectorAll(".day");
@@ -18,7 +18,7 @@ for( let i=0; i<elements.length; i++ ) {
   
     console.log(elements[i]);
 //   multiple ways to change the style of an element
-    elements[i].style.border = "5px solid #000000";
+    // elements[i].style.border = "5px solid #000000";
     // elements[i].style.borderColor = "#00ff00";
     // elements[i].className += " redback";
     // elements[i].className = addClass( elements[i], "redback" );
@@ -49,7 +49,7 @@ function addClass( element, addClassName ) {
 // Working with forms
 // do things when the form submit button is pushed
 function validateForm() {
-  
+
     // select a single element with an ID
     let msgBox = document.querySelector("#message-area");
     let fail = "Please give me knowledge";
@@ -95,18 +95,21 @@ window.addEventListener("click", function(){
 
 
 
-// vertical scroll meter for horizontal scrolling
+// vertical scroll meter for horizontal scrolling - needs refinement
 let scrollMeter = document.querySelector("#scroll-meter");
-let fullHeight = window.innerHeight;
-// fullWidth needs to be taken from scroll-meter's parent/max-width rather than window
-let fullWidth = window.innerWidth;
-let remap = fullHeight / fullWidth;
+
+let fullHeight = document.querySelector("body").offsetHeight; //+ document.querySelector("html").clientHeight;
+// fullWidth needs to be taken from scroll-meter's parent/max-width
+let fullWidth = scrollMeter.parentElement.offsetWidth;
+
 let scrollPosition = 0;
+let remap = fullHeight / fullWidth;
 
 window.addEventListener("scroll", function(){
     
-    // get current scroll position here
+    scrollPosition = window.scrollY
+    // console.log(scrollPosition);
 
-    scrollMeter.getElementsByClassName.width = (scrollPosition * remap) + "px";
+    scrollMeter.style.width = (scrollPosition * remap) + "px";
 });
 

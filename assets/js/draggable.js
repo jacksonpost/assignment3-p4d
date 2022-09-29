@@ -12,7 +12,7 @@ let drags = document.querySelectorAll(".draggable");
 // loop through our draggable elements
 for( let i=0; i<drags.length; i++ ) {
 
-    // you could add drag event listeners to each
+    // you could add drag event listeners to each:
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drag_event
     // drags[i].addEventListener("dragstart", (event) => {
     //     // console.log("dragstart");

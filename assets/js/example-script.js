@@ -1,10 +1,13 @@
 
+let mySelection = document.querySelectorAll("section");
+// console.log(mySelection);
+let myImgSelection = document.querySelector("img");
 
-let clickable = document.querySelectorAll('.hero');
-console.log(clickable);
+// mySelection.style.backgroundColor = "red";
+myImgSelection.style.width = "50%";
 
-for(let i=0; i<clickable.length; i++){
-    clickable[i].addEventListener("click", function(){
-        alert(clickable[i].alt);
-    });
+for(let i=0; i<mySelection.length; i++){
+    console.log(mySelection[i]);
+    mySelection[i].style.width = 10 + (i * 30) + "%";
+    mySelection[i].style.background = "rgb(" + (i * 90) + ",0,0)";
 }

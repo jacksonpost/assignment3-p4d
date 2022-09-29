@@ -4,7 +4,7 @@
     <title>Test Page</title>
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- load our script/s.  Defer prevents them from running until the HTML is parsed -->
+    <!-- load our script/s.  'defer' prevents them from running until the HTML is parsed -->
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/scrollfader.js" defer></script>
     <script src="assets/js/draggable.js" defer></script>
@@ -15,7 +15,7 @@
     
     <header>
       <h1>P4D Example Code</h1>
-      <!-- <div class="scroll-meter"></div> -->
+      <div id="scroll-meter"></div>
     </header>
 
     <main>
@@ -28,7 +28,7 @@
 
       <div id="audio-player">
         <div class="controls" aria-label="audio controls">
-          <div class="button_play" data-playing="false" role="button" aria-label="play or pause"></div>
+          <div class="button_play" data-anything="some data" data-playing="false" role="button" aria-label="play or pause"></div>
           <!-- <div class="button_mute" role="button" aria-label="mute or unmute"></div> -->
         </div>
         <!-- crossorigin attribute mitigates CORS errors: https://www.dofactory.com/html/audio/crossorigin -->
@@ -56,6 +56,7 @@
         </div>
     </section>
 
+    <section>
       <!-- form elements allow us to ingest data and offer options to the user -->
       <form name="myForm" id="myForm" onsubmit="return validateForm()">
         <div>
@@ -71,7 +72,8 @@
       <!-- an element to display messages using JS -->
       <div id="message-area">
       </div>
-      
+    </section>
+
       <!-- fades into view as the page scrolls down -->
       <div id="scrollfader">
         <img src="assets/img/terrazzo.webp" alt=""/>
