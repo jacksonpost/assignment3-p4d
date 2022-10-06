@@ -7,15 +7,12 @@ window.onresize = (event) => {
     console.log(wh);
 };
 
-let mySelection = document.querySelectorAll("section");
 
-// mySelection.style.backgroundColor = "red";
-// or
 // red background generator
+let mySelection = document.querySelectorAll("section");
 let colourInc = 150 / (mySelection.length-1);
 for(let i=0; i<mySelection.length; i++){
 
-    // mySelection[i].style.width = 10 + (i * 30) + "%";
     mySelection[i].style.background = "rgb(" + (55 + (i * colourInc)) + ",0,0)";
 
     // select images within our current selection
@@ -25,56 +22,54 @@ for(let i=0; i<mySelection.length; i++){
     // }
 }
 
+// make elements clickable
 let myButtons = document.querySelectorAll(".button");
 for(let i=0; i<myButtons.length; i++){
     // console.log(myButtons[i]);
     myButtons[i].addEventListener("click", makeRed);
 }
-
+// could use onClick="makeRed(this);" as a tag attribute in the HTML
 // function makeRed(theVar){
 //     theVar.style.backgroundColor = "red";
 // }
+// or
 function makeRed(){
-    // console.log(this);
     this.style.backgroundColor = "red";
 }
 
-let sec1 = document.querySelector("#section2");
 
+// nav based on a class and a dataset:
+// <span class="section-link" data-target="#section1">Section 1</span>
+let topNav = document.querySelectorAll(".section-link");
+for(let i=0; i<topNav.length; i++){
+    topNav[i].addEventListener("click", goToSection);
+}
+function goToSection(){
+    let target = document.querySelector(this.dataset.target);
+    target.scrollIntoView();
+}
+
+
+let header = document.querySelector("header .container");
+let sec = document.querySelector("#section2");
 function myScroll(){
 
-    // console.log(scrollY);
-
     // if(scrollY < wh){
-        let header = document.querySelector("header");
         if(this.scrollY < header.clientHeight){
             header.style.width = "100%";
         }else{
             header.style.width = "40%";
         }
 
-        let coords = sec1.getBoundingClientRect();
-
+        let coords = sec.getBoundingClientRect();
         if(coords.y <= 0){
             // console.log("coords y: " + coords.y);
-            // sec1.addEventListener("scroll", myScroll2);
-            header.style.visibility = "hidden";
+            // header.style.visibility = "hidden";
         }else{
-            header.style.visibility = "visible";
+            // header.style.visibility = "visible";
         }
-
-        if(coords.y < window.innerHeight){
-            console.log("less than window innerheight");
-            // sec1.removeEventListener("scroll", myScroll2);
-        }
-
 
     // }
 }
-function myScroll2(){
-    console.log("bottom of window");
-}
-
 window.addEventListener("scroll", myScroll);
-
-// window.removeEventListener("scroll", myScroll());
+// window.removeEventListener("scroll", myScroll);

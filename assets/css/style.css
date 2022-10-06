@@ -7,6 +7,9 @@
 /* Class selector uses . */
 .day {}
 
+:root{
+  scroll-behavior: smooth;
+}
 
 html{
   /* CSS variable definitions */
@@ -31,7 +34,8 @@ body {
   line-height: 1.4em;
   /* CSS variables in use */
   color: var(--type-main);
-  background: var(--key);
+  background-color: var(--key);
+  background-image: url(../img/terrazzo.webp);
 }
 
 p{
@@ -39,6 +43,10 @@ p{
 
 a{
   color: inherit;
+}
+
+h2{
+  font-size: 2rem;
 }
 
 b,
@@ -49,6 +57,10 @@ strong{
 i,
 em{
   font-style: italic;
+}
+
+small{
+  font-size: 0.8rem;
 }
 
 img {
@@ -67,35 +79,36 @@ nav ul{
   font-size: 0.8rem;
 }
 
-header,
+header .container,
 main,
 footer{
-  padding: var(--padding-s);
+  padding: var(--padding-m);
 }
 
 header{
-  /* set up to transition when the user scrolls past a certain point.
-     a width change in js will trigger the transition */
-  display: inline-block;
-  width: 100%;
-  transition: width 500ms;
-
-  color: var(--key);
-  background: var(--type-main);
+  display: flex;
+  justify-content: flex-end;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 1000;
 }
 
+header .container{
+   /* set up to transition when the user scrolls past a certain point.
+     a width change in js will trigger the transition */
+  width: 100%;
+  transition: width 500ms;
+  color: var(--key);
+  background: var(--type-main);
+}
+
 main#thursday{
   display: grid;
-  /* grid-template-rows: repeat(3, 100vh); */
   grid-template-rows: repeat(3, 1fr);
   padding: 0;
   color: var(--key);
 }
-
 main#thursday section{
   min-height: 100vh;
   margin: 0;
@@ -104,6 +117,14 @@ main#thursday section{
 
 section{
   margin: 2rem 0;
+  /* height: 100vh; */
+  /* width: 100vw; */
+  /* position: sticky; */
+  /* top:0; */
+  /* left:0; */
+  /* transition: top 1500ms; */
+  /* opacity: 0.3; */
+  /* overflow: hidden; */
 }
 
 form {
@@ -125,6 +146,13 @@ footer{
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
+}
+
+.section-link{
+
+}
+.section-link:hover{
+  cursor: pointer;
 }
 
 .red-square{
