@@ -7,10 +7,6 @@
 /* Class selector uses . */
 .day {}
 
-:root{
-  scroll-behavior: smooth;
-}
-
 html{
   /* CSS variable definitions */
   --type-main: #222222;
@@ -20,6 +16,8 @@ html{
   --padding-s: 1rem;
   --padding-m: 2rem;
   --padding-l: 4rem;
+
+  scroll-behavior: smooth;
 }
 
 * {
@@ -36,6 +34,12 @@ body {
   color: var(--type-main);
   background-color: var(--key);
   background-image: url(../img/terrazzo.webp);
+}
+body#techniques {
+  background-image: none;
+}
+body#techniques header{
+  background: var(--key);
 }
 
 p{
@@ -70,19 +74,22 @@ img {
   max-width: 50%;
   max-height: 50%;
 }
+.img-s{
+  max-width: 25%;
+  max-height: 25%;
+}
 
 nav{
 }
-nav ul{
-  display: flex;
-  gap: var(--padding-m);
-  font-size: 0.8rem;
-}
+  nav ul{
+    display: flex;
+    /* gap: var(--padding-m); */
+    font-size: 0.8rem;
+  }
 
-header .container,
-main,
-footer{
-  padding: var(--padding-m);
+nav ul li,
+header h1{
+  padding: var(--padding-s);
 }
 
 header{
@@ -101,6 +108,14 @@ header .container{
   transition: width 500ms;
   color: var(--key);
   background: var(--type-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main,
+footer{
+  padding: var(--padding-m);
 }
 
 main#thursday{
@@ -149,11 +164,44 @@ footer{
 }
 
 .section-link{
-
 }
-.section-link:hover{
+  .section-link:hover{
+    cursor: pointer;
+  }
+
+/* modal.js =================== */
+/* uses: https://iconmonstr.com/x-mark-thin-svg/ */
+.zoomable:hover,
+.modal .close:hover{
   cursor: pointer;
 }
+.modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000000bb;
+  opacity: 0;
+  transition: opacity 250ms;
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+}
+  .modal img{
+    max-height: 100%;
+  }
+  .modal .close{
+    position: absolute;
+    top: var(--padding-s);
+    right: var(--padding-s);;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../img/iconmonstr-x-mark-thin.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+/* ============================ */
 
 .red-square{
   min-width: 50px;
@@ -198,7 +246,6 @@ footer{
 
 
 /* audio-player.js ========= */
-
 #audio-player{
   display: inline-block;
   padding: 1rem;
@@ -228,5 +275,4 @@ footer{
 #audio-player .button_mute{
   background: url(../img/media/mute.svg);
 }
-
 /* ====================== */

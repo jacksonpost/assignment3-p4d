@@ -10,11 +10,13 @@ window.onresize = (event) => {
 
 // red background generator
 let mySelection = document.querySelectorAll("section");
+let sectionLinks = document.querySelectorAll(".section-link");
 let colourInc = 150 / (mySelection.length-1);
 for(let i=0; i<mySelection.length; i++){
 
-    mySelection[i].style.background = "rgb(" + (55 + (i * colourInc)) + ",0,0)";
-
+    let bgColor = "rgb(" + (55 + (i * colourInc)) + ",0,0)";
+    mySelection[i].style.background = bgColor;
+    sectionLinks[i].parentElement.style.background = bgColor;
     // select images within our current selection
     // let myImgSelection = mySelection[i].querySelector("img");
     // if(myImgSelection !== null){
@@ -73,3 +75,4 @@ function myScroll(){
 }
 window.addEventListener("scroll", myScroll);
 // window.removeEventListener("scroll", myScroll);
+
