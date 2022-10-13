@@ -56,21 +56,19 @@ let header = document.querySelector("header .container");
 let sec = document.querySelector("#section2");
 function myScroll(){
 
-    // if(scrollY < wh){
-        if(this.scrollY < header.clientHeight){
-            header.style.width = "100%";
-        }else{
-            header.style.width = "40%";
-        }
+    // header resize/collapse
+    if(this.scrollY < header.clientHeight){
+        header.style.flex = "1";
+    }else{
+        header.style.flex = "0";
+    }
 
-        let coords = sec.getBoundingClientRect();
-        if(coords.y <= 0){
-            // console.log("coords y: " + coords.y);
-            // header.style.visibility = "hidden";
-        }else{
-            // header.style.visibility = "visible";
-        }
-
+    // let coords = sec.getBoundingClientRect();
+    // if(coords.y <= 0){
+    //     // console.log("coords y: " + coords.y);
+    //     // header.style.visibility = "hidden";
+    // }else{
+    //     // header.style.visibility = "visible";
     // }
 }
 window.addEventListener("scroll", myScroll);

@@ -35,15 +35,22 @@ body {
   background-color: var(--key);
   background-image: url(../img/terrazzo.webp);
 }
-body#techniques {
-  background-image: none;
-}
-body#techniques header{
-  background: var(--key);
-}
+  body#techniques {
+    background-image: none;
+  }
+  body#techniques header{
+    background: var(--key);
+  }
 
 p{
+  margin-bottom: 1.5rem;
 }
+  p:last-of-type{
+    margin-bottom: 1rem;
+  }
+  main p{
+    max-width: 70ch;
+  }
 
 a{
   color: inherit;
@@ -87,10 +94,10 @@ nav{
     font-size: 0.8rem;
   }
 
-nav ul li,
-header h1{
-  padding: var(--padding-s);
-}
+  nav ul li,
+  header h1{
+    padding: var(--padding-s);
+  }
 
 header{
   display: flex;
@@ -103,9 +110,9 @@ header{
 
 header .container{
    /* set up to transition when the user scrolls past a certain point.
-     a width change in js will trigger the transition */
-  width: 100%;
-  transition: width 500ms;
+     a change of the 'flex' value in js will trigger the transition */
+  flex: 1;
+  transition: flex 750ms;
   color: var(--key);
   background: var(--type-main);
   display: flex;
@@ -119,8 +126,6 @@ footer{
 }
 
 main#thursday{
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
   padding: 0;
   color: var(--key);
 }
@@ -164,6 +169,7 @@ footer{
 }
 
 .section-link{
+  display: block;
 }
   .section-link:hover{
     cursor: pointer;
