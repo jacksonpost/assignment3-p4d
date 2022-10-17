@@ -9,12 +9,24 @@ for(let i=0; i<imgViewer.length; i++){
         let modal = document.createRange().createContextualFragment('<div class="modal" onClick="closeIt(this);"><img src="' + this.src + '"><div class="close"></div></div>');
         document.body.appendChild(modal);
         let renderedModal = document.querySelector(".modal");
-        renderedModal.style.opacity = "1.0";
+
+        // this timeout is only to make the opacity change usable by css transitions, the timeout is basically instant
+        setTimeout(() => {
+            renderedModal.style.opacity = "1.0";
+        });
     });
 }
 
 function closeIt(t){
-    // let closer = document.querySelector(".close");
-    // let closeTarget = closer.parentElement;
-    document.body.removeChild(t);
+
+    // this timeout is only to make the opacity change usable by css transitions, the timeout is basically instant
+    setTimeout(() => {
+        t.style.opacity = "0";
+    });
+
+    // this timeout is used to delay the child removal until the css transition is finished
+    // hardcoding the 250ms is not the best idea though, getting the transition time through a function would be better
+    setTimeout(() => {
+        document.body.removeChild(t);
+    }, 250);
 }

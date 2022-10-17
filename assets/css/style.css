@@ -43,14 +43,8 @@ body {
   }
 
 p{
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--padding-s);
 }
-  p:last-of-type{
-    margin-bottom: 1rem;
-  }
-  main p{
-    max-width: 70ch;
-  }
 
 a{
   color: inherit;
@@ -128,23 +122,25 @@ footer{
 main#thursday{
   padding: 0;
   color: var(--key);
+  
+  /* For snap-srcolling (pt.1): */
+  /* You need to set a height for the parent element and make sure its contents are scrollable */
+  /* overflow-y: scroll;
+  height: 100vh;
+  scroll-snap-type: y mandatory; */
 }
 main#thursday section{
   min-height: 100vh;
   margin: 0;
   padding: var(--padding-m);
+
+  /* For snap-srcolling (pt.2): */
+  /* Set which elements should be snapped to, and where */
+  /* scroll-snap-align: start; */
 }
 
 section{
   margin: 2rem 0;
-  /* height: 100vh; */
-  /* width: 100vw; */
-  /* position: sticky; */
-  /* top:0; */
-  /* left:0; */
-  /* transition: top 1500ms; */
-  /* opacity: 0.3; */
-  /* overflow: hidden; */
 }
 
 form {
@@ -167,6 +163,23 @@ footer{
   grid-template-columns: 1fr 1fr;
   align-items: end;
 }
+
+.flex-full{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+  .flex-full h2{
+    flex-basis: 100%;
+  }
+  .flex-full p{
+    flex-basis: 60ch;
+    line-height: 1.75rem;
+  }
+  .flex-full img{
+    padding: var(--padding-m);
+  }
 
 .section-link{
   display: block;
@@ -209,11 +222,14 @@ footer{
   }
 /* ============================ */
 
+.red,
+.red-square{
+  background: red;
+}
 .red-square{
   min-width: 50px;
   min-height: 50px;
   padding: 1rem;
-  background: red;
 }
 
 .draggable{

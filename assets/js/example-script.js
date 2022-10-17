@@ -24,19 +24,27 @@ for(let i=0; i<mySelection.length; i++){
     // }
 }
 
+
 // make elements clickable
 let myButtons = document.querySelectorAll(".button");
 for(let i=0; i<myButtons.length; i++){
     // console.log(myButtons[i]);
-    myButtons[i].addEventListener("click", makeRed);
+    // can modify style directly:
+    // myButtons[i].addEventListener("click", makeRed);
+    // or toggle a css class:
+    myButtons[i].addEventListener("click", toggleRed);
+
 }
 // could use onClick="makeRed(this);" as a tag attribute in the HTML
 // function makeRed(theVar){
 //     theVar.style.backgroundColor = "red";
 // }
-// or
+// or:
 function makeRed(){
     this.style.backgroundColor = "red";
+}
+function toggleRed(){
+    this.classList.toggle("red");
 }
 
 
@@ -50,7 +58,6 @@ function goToSection(){
     let target = document.querySelector(this.dataset.target);
     target.scrollIntoView();
 }
-
 
 let header = document.querySelector("header .container");
 let sec = document.querySelector("#section2");
@@ -74,3 +81,32 @@ function myScroll(){
 window.addEventListener("scroll", myScroll);
 // window.removeEventListener("scroll", myScroll);
 
+
+
+// BROKEN - auto scroll experiment, replaced by css snapping
+// let scrolling = false;
+// window.addEventListener("scroll", scrollHandler);
+// function scrollHandler(){
+//     for(let i=1; i<mySelection.length; i++){
+//         coords = mySelection[i].getBoundingClientRect();
+//         console.log(scrolling);
+//         if(!scrolling){
+//             // console.log("section" + i + " ypos = " + coords.y);
+//             // mySelection[i].addEventListener("scroll", theFunction);
+//             if(coords.y > window.innerHeight / 6 && coords.y < window.innerHeight - (window.innerHeight / 6) ){
+//                 snapTo(mySelection[i], i+1);
+//             }
+//         }else{
+//             // if(coords.y > -40 && coords.y < 40){
+//                 if(coords.y == 0){
+//                 scrolling = false;
+//             }
+//         }
+//     }
+// }
+// function snapTo(t, i){
+//     console.log(t);
+//     console.log("snapped to " + i);
+//     scrolling = true;
+//     t.scrollIntoView();
+// }
