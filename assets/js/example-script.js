@@ -111,8 +111,7 @@ window.addEventListener("scroll", myScroll);
 //     t.scrollIntoView();
 // }
 
-// on scroll - when the gallery ypos is 0, fadein li elements in sequence
-
+// eventually do this on scroll - when the gallery ypos is 0, fadein li elements in sequence
 $('.gallery li').hide();
 
 $('.gallery .trigger').on('click', function(){
@@ -125,3 +124,33 @@ $('.gallery .trigger').on('click', function(){
     // $('.gallery li').fadeIn();
 
 });
+
+
+// 
+
+
+var arr = [];
+$('.sector-link').each(function(i) {
+  arr.push($(this).data("scroll-point"));
+  $(this).hide();
+});
+
+$(window).scroll(function() {
+  var scrollTop = $(window).scrollTop();
+  elementFade(scrollTop);
+});
+
+elementFade = function(top) {
+  for (var i = 0; i < arr.length; i++) {
+    var min = arr[i];
+    var max = i != (arr.length - 1) ? arr[i + 1] : (arr[i] + 100);
+    if (top >= min && top < max) {
+      $('[data-scroll-point="' + arr[i] + '"]').fadeIn(800);
+      $('p.info').html($('[data-scroll-point="' + arr[i] + '"]').html() + " visible at point " + arr[i]);
+    }else{
+        $('[data-scroll-point="' + arr[i] + '"]').hide();
+    }
+  }
+}
+
+// 

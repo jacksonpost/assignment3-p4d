@@ -336,3 +336,29 @@ footer{
   background: url(../img/media/mute.svg);
 }
 /* ====================== */
+
+
+/*  */
+
+body {
+  height: 3000px;
+}
+p.info {
+  position: fixed;
+  top: 0;
+  font-size: 11px;
+  color: #555;
+  background: #eee;
+  padding: 3px;
+}
+.sector-link {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 2px;
+  background: #abcdef;
+  display: none;
+}
+
+
+/*  */
