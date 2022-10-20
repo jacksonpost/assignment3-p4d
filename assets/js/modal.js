@@ -11,6 +11,7 @@ for(let i=0; i<imgViewer.length; i++){
         let renderedModal = document.querySelector(".modal");
 
         // this timeout is only to make the opacity change usable by css transitions, the timeout is basically instant
+        // https://stackoverflow.com/questions/40453881/change-of-opacity-using-css-transition-and-vanilla-javascript-works-only-when-fa
         setTimeout(() => {
             renderedModal.style.opacity = "1.0";
         });

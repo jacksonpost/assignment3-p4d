@@ -34,6 +34,8 @@ body {
   color: var(--type-main);
   background-color: var(--key);
   background-image: url(../img/terrazzo.webp);
+  background-position: center;
+
 }
   body#techniques {
     background-image: none;
@@ -181,22 +183,39 @@ footer{
     padding: var(--padding-m);
   }
 
-
-.flex-2-col .gallery{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  /* gap: 10px; */
+.gallery{
+  padding: var(--padding-m);
+  background: var(--type-main);
 }
-  .flex-2-col .gallery > li {
-    flex-basis: 50%; /* width: 350px; */
+.gallery ul{
+  display: grid;
+  justify-content: center;
+  gap: var(--padding-m);
+}
+.gallery-2-col ul{
+  grid-template-columns: 1fr 1fr;
+}
+.gallery-3-col ul{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+  .gallery ul > li {
+    overflow: hidden;
+    max-height: 400px;
+    position: relative;
   }
-    .flex-2-col .gallery li img {
+    .gallery ul li img {
       object-fit: cover;
+      vertical-align: middle;
       width: 100%;
       height: 100%;
-      vertical-align: middle;
-      /* border-radius: 5px; */
+    }
+    .gallery ul li .overlay{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 0.75rem;
+      padding: var(--padding-xs);
+      background-color: #00000066;
     }
 
 
