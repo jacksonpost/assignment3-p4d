@@ -110,3 +110,18 @@ window.addEventListener("scroll", myScroll);
 //     scrolling = true;
 //     t.scrollIntoView();
 // }
+
+// on scroll - when the gallery ypos is 0, fadein li elements in sequence
+
+$('.gallery li').hide();
+
+$('.gallery .trigger').on('click', function(){
+
+    $('.gallery li').each(function(index){
+        // console.log(1000 * index);
+        $(this).delay(1000 * index).fadeIn(1000);
+    });
+    // console.log(items);
+    // $('.gallery li').fadeIn();
+
+});
